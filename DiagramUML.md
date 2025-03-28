@@ -1,60 +1,58 @@
 ```mermaid
 classDiagram
-    class Jogador {
-        +idJogador: int
-        +nome: string
-        +senha: string
-        +saldoMoedas: int
-        +personagens: Queue~Personagem~
-        +cadastrar()
-        +autenticar()
-        +criarPersonagem()
-        +selecionarPersonagem()
+    class Player {
+        +idPlayer: int
+        +name: string
+        +password: string
+        +balance: float
+        +characters: Character[]
+        +register()
+        +authenticate()
+        +createCharacter()
+        +selectCharacter()
     }
-    class Personagem {
-        +idPersonagem: int
-        +nome: string
-        +nivel: int
-        +vidaMaxima: int
-        +vidaAtual: int
-        +manaMaxima: int
-        +manaAtual: int
-        +habilidades: LinkedList~Habilidade~
-        +inventario: LinkedList~Item~
-        +receberDano(valor: int)
-        +usarHabilidade(idHabilidade: int, alvo: Personagem)
-        +curar(valor: int)
-        +estaVivo(): bool
-        +subirNivel()
+    class Character {
+        +idCharacter: int
+        +name: string
+        +level: int
+        +maxHealth: int
+        +currentHealth: int
+        +maxMana: int
+        +currentMana: int
+        +skills: Skill[]
+        +inventory: Item[]
+        +takeDamage(value: int)
+        +useSkill(skillId: int, target: Character)
+        +heal(value: int)
+        +isAlive(): bool
+        +levelUp()
     }
     class Arena {
-        +idBatalha: int
-        +listaDeParticipantes: List~Personagem~
-        +turnoAtual: int
-        +estadoBatalha: string
-        +filaTurnos: Queue~Personagem~
-        +historicoTurnos: Stack~Personagem~
-        +iniciarBatalha()
-        +executarTurno()
-        +verificarVencedor()
-        +exibirRankingFinal()
+        +idBattle: int
+        +participants: Character[]
+        +currentTurn: int
+        +battleState: string
+        +startBattle()
+        +executeTurn()
+        +checkWinner()
+        +displayFinalRanking()
     }
-    class Habilidade {
+    class Skill {
         +id: int
-        +nome: string
-        +custoMana: int
-        +dano: int
-        +usar(usuario: Personagem, alvo: Personagem)
+        +name: string
+        +manaCost: int
+        +effect: string
+        +use(user: Character, target: Character)
     }
     class Item {
         +id: int
-        +nome: string
-        +efeito: string
-        +usar(usuario: Personagem, alvo: Personagem)
+        +name: string
+        +effect: string
+        +use(user: Character)
     }
 
-    Jogador --> Personagem : "controls"
-    Personagem --> Habilidade : "has"
-    Personagem --> Item : "has"
-    Arena --> Personagem : "manages"
+    Player "1" --> "*" Character
+    Character "1" --> "*" Skill
+    Character "1" --> "*" Item
+    Arena "1" --> "*" Character
 ```
