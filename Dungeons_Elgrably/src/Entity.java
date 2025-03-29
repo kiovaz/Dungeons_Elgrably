@@ -31,7 +31,7 @@ public abstract class Entity {
         return this.currentHealth > 0;
     }
 
-    public void levelUp () {
+    public void levelUp () {                // TODO Verificar se vai ser necessário o metodo levelUp ser abstrato para cada entidade ou se sera igual para todos
         this.level++;
         this.maxHealth += 10;
         this.currentHealth = this.maxHealth;
@@ -43,29 +43,59 @@ public abstract class Entity {
         return idCharacter;
     }
 
+    public void setIdCharacter(int idCharacter) {
+        this.idCharacter = idCharacter;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getLevel() {
         return level;
     }
 
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     public int getMaxHealth() {
         return maxHealth;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
     }
 
     public int getCurrentHealth() {
         return currentHealth;
     }
 
+    public void setCurrentHealth(int currentHealth) {
+        this.currentHealth = currentHealth;
+    }
+
     public int getMaxMana() {
         return maxMana;
+    }
+
+    public void setMaxMana(int maxMana) {
+        this.maxMana = maxMana;
     }
 
     public int getCurrentMana() {
         return currentMana;
     }
+
+    public void setCurrentMana(int currentMana) {
+        this.currentMana = currentMana;
+    }
+
+    
 
     
     //TODO INSERIR UM CHEAT POSTERIORMENTE
