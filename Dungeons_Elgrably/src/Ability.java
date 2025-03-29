@@ -16,7 +16,7 @@ public class Ability {
             user.setCurrentMana(user.getCurrentMana() - this.manaCost);
         }
         if (this.effect < 0){
-            target.takeDamage(-this.effect);
+            target.takeDamage(-this.effect);                //TODO VER SE TA CERTA ESSA LOGICA DO METODO DE DANO
         } else {
             target.heal(this.effect);
         }

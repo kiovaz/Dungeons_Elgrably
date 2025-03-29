@@ -20,18 +20,38 @@ public abstract class Entity {
         this.currentHealth = currentHealth;
         this.maxMana = maxMana;
         this.currentMana = currentMana;
-        //TODO this.abilities = new LinkedList() (???)
+        // TODO this.abilities = new LinkedList() (???)
     }
 
-    public abstract void takeDamage (int value);
-    public abstract void useAbility (int abilityId, Entity target);  // TODO vai percorrer pela lista encadeada procurando a habilidade;
-    public abstract int heal(int value);
-    
+    public void takeDamage(int damage) {
+        if (damage > 0) {
+            this.currentHealth -= damage;
+            if (this.currentHealth < 0) { // pra vida não ficar negativa
+                this.currentHealth = 0;
+            }
+        }
+    }
+
+    public abstract void useAbility(int abilityId, Entity target); // TODO vai percorrer pela lista encadeada procurando
+                                                                   // a habilidade;
+
+    public int heal(int heal) {
+        if (heal > 0) {
+            this.currentHealth += heal;
+            if (this.currentHealth > this.maxHealth) {
+                this.currentHealth = this.maxHealth;
+            }
+        }
+
+        return currentHealth;
+    }
+
     public boolean isALive() {
         return this.currentHealth > 0;
     }
 
-    public void levelUp () {                // TODO Verificar se vai ser necessário o metodo levelUp ser abstrato para cada entidade ou se sera igual para todos
+    public void levelUp() { // TODO Verificar se vai ser necessário o metodo levelUp ser abstrato para cada
+                            // entidade ou se sera igual para todos
         this.level++;
         this.maxHealth += 10;
         this.currentHealth = this.maxHealth;
@@ -95,8 +115,5 @@ public abstract class Entity {
         this.currentMana = currentMana;
     }
 
-    
-
-    
-    //TODO INSERIR UM CHEAT POSTERIORMENTE
+    // TODO INSERIR UM CHEAT POSTERIORMENTE
 }
