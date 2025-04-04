@@ -1,3 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package player;
+
+/**
+ *
+ * @author Ramon Souza
+ */
 public class Player {
     private int idPlayer;
     private String name;
@@ -5,9 +15,7 @@ public class Player {
     private int balance;
     // TODO Fila encadeada de Personagens ( cada jogador pode ter varios)
 
-    public Player() {
-
-    }
+    public Player() {};
 
     public Player(int idPlayer, String name, String password, int balance) {
         this.idPlayer = idPlayer;
@@ -77,5 +85,4 @@ public class Player {
     // TODO METODO PARA CRIAR PERSONAGEM
 
     // TODO METODO PARA SELECIONAR PERSONAGEM
-
 }
