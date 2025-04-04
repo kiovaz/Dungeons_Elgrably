@@ -13,7 +13,6 @@ public class Player {
     private String name;
     private String password;
     private int balance;
-    // TODO Fila encadeada de Personagens ( cada jogador pode ter varios)
 
     public Player() {};
 
@@ -52,7 +51,6 @@ public class Player {
         return balance;
     }
 
-    // TODO METODO PARA CADASTRAR
     public Player newPlayer(int idPlayer, String name, String password, int balance) {
 
         if (idPlayer <= 0) {
@@ -79,10 +77,4 @@ public class Player {
         System.out.println("Player" + name + "registered.");
         return newPlayer;
     }
-
-    // TODO METODO PARA AUTENTICAR()
-
-    // TODO METODO PARA CRIAR PERSONAGEM
-
-    // TODO METODO PARA SELECIONAR PERSONAGEM
 }

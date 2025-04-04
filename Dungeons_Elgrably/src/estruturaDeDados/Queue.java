@@ -13,7 +13,13 @@ public class Queue {
     
     private Node head;
     private Node tail;
-    private int qtd = 1;
+    private int qtd = 0;
+
+    public Queue (){
+        this.head = null;
+        this.tail = null;
+        this.qtd = 0;
+    }
     
     public void add(Player player) {
         Node newNode = new Node(player);
@@ -33,7 +39,7 @@ public class Queue {
         Node temp = head;
         
         if(isEmpty()) {
-            System.out.println("Você não tem elementos a ser removido");
+            System.out.println("Fila vazia.");
             return;
         }
         
@@ -44,7 +50,7 @@ public class Queue {
     
     public void peek() {
         if(isEmpty()) {
-            System.out.println("Você não tem elementos a ser printado");
+            System.out.println("Não há nós na fila.");
             return;
         }
         
@@ -55,8 +61,8 @@ public class Queue {
         return head == null;
     }
 
-    public void size() {
-        System.out.println("O números de elementos que você tem é: " + qtd);
+    public int size() {
+        return qtd;
     }
     
     // getter and setters
