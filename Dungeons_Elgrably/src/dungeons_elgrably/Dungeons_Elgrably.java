@@ -15,7 +15,7 @@ public class Dungeons_Elgrably {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {        
+    public static void main(String[] args) {
         Home LoginFrame = new Home();
         LoginFrame.setVisible(true);
         LoginFrame.pack();
