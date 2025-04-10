@@ -85,4 +85,8 @@ public class Player {
     // TODO METODO PARA CRIAR PERSONAGEM
 
     // TODO METODO PARA SELECIONAR PERSONAGEM
+
+    public void setBalance(int aInt) {
+        this.balance = aInt;
+    }
 }

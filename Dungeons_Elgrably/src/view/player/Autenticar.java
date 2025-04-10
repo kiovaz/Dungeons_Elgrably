@@ -8,8 +8,7 @@ import view.player.Home;
 import classes_de_conexao.Conexao;
 import estruturaDeDados.Queue;
 import player.Player;
-import java.sql.Connection;
-import java.sql.SQLException;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.*;
@@ -168,6 +167,13 @@ public class Autenticar extends javax.swing.JFrame {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
+                Player playerLogado = new Player();
+                playerLogado.setIdPlayer(rs.getInt("id"));
+                playerLogado.setName(rs.getString("name"));
+                playerLogado.setBalance(rs.getInt("balance"));
+
+System.out.println("Player logado: " + playerLogado.getName() + ", saldo: " + playerLogado.getBalance());
+
                 int id_player = rs.getInt("id");
                 System.out.println("ID do player logado: " + id_player);
 
