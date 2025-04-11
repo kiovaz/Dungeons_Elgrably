@@ -3,12 +3,12 @@ package estruturaDeDados;
 public class LinkedList {
     private Node head;
 
-    public LinkedList () {
+    public LinkedList() {
         this.head = null;
     }
 
-    public void addNode (Object data){
-        Node newNode = new Node(head);
+    public void addNode(Object data) {
+        Node newNode = new Node(data);
 
         if (head == null) {
             head = newNode;
@@ -33,7 +33,8 @@ public class LinkedList {
         }
 
         Node temp = head;
-        while (temp.getNext() != null && (temp.getNext().getData() == null ? data != null : !temp.getNext().getData().equals(data))) {
+        while (temp.getNext() != null
+                && (temp.getNext().getData() == null ? data != null : !temp.getNext().getData().equals(data))) {
             temp = temp.getNext();
         }
         if (temp.getNext() == null) {
@@ -44,13 +45,16 @@ public class LinkedList {
         }
     }
 
-    public void print(){
+    public void print() {
         Node temp = head;
-        while (temp != null){
+        while (temp != null) {
             System.out.println("O elemento do nó é:" + temp.getData());
             temp = temp.getNext();
         }
     }
 
+    public Node getHead() {
+        return head;
+    }
 
 }
