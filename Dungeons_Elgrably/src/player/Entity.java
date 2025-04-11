@@ -16,13 +16,14 @@ public abstract class Entity {
     protected int currentHealth;
     protected int maxMana;
     protected int currentMana;
+    protected int agility;
     // TODO Lista Encadeada para Habilidades
 
     public Entity() {
     }
 
     public Entity(int idCharacter, String name, int level, int maxHealth, int currentHealth, int maxMana,
-            int currentMana) {
+            int currentMana, int agility) {
         this.idCharacter = idCharacter;
         this.name = name;
         this.level = level;
@@ -30,6 +31,7 @@ public abstract class Entity {
         this.currentHealth = currentHealth;
         this.maxMana = maxMana;
         this.currentMana = currentMana;
+        this.agility = agility;
         // TODO this.abilities = new LinkedList() (???)
     }
 
@@ -51,6 +53,8 @@ public abstract class Entity {
             if (this.currentHealth > this.maxHealth) {
                 this.currentHealth = this.maxHealth;
             }
+        } else {
+            this.currentHealth = 0;
         }
 
         return currentHealth;
@@ -123,6 +127,14 @@ public abstract class Entity {
 
     public void setCurrentMana(int currentMana) {
         this.currentMana = currentMana;
+    }
+
+    public int getAgility() {
+        return agility;
+    }
+
+    public void setAgility(int agility) {
+        this.agility = agility;
     }
 
     // TODO INSERIR UM CHEAT POSTERIORMENTE

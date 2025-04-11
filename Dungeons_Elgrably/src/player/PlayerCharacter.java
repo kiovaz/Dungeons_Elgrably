@@ -9,10 +9,17 @@ package player;
  * @author Ramon Souza
  */
 public class PlayerCharacter extends Entity {
-    
+
+    public PlayerCharacter(int id, String name, int agility, int maxHp, int currentHp,
+            int maxMana, int currentMana, int strength) {
+        super(id, name, agility, maxHp, currentHp, maxMana, currentMana, strength);
+    }
+
     @Override
     public void takeDamage(int value) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        int newHp = Math.max(0, this.getCurrentHealth() - value);
+        this.setCurrentHealth(newHp);
+        System.out.println(this.getName() + " agora tem " + newHp + " de HP.");
     }
 
     @Override
