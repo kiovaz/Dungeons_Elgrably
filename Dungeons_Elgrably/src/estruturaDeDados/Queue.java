@@ -15,6 +15,7 @@ public class Queue {
 
     private Node head;
     private Node tail;
+
     private int qtd = 0;
 
     public Queue() {
@@ -27,6 +28,7 @@ public class Queue {
         Node newNode = new Node(entity);
 
         if (isEmpty()) {
+
             this.head = newNode;
             this.tail = newNode;
         } else {
@@ -64,8 +66,8 @@ public class Queue {
         return head == null;
     }
 
-    public int size() {
-        return qtd;
+    public void size() {
+        System.out.println("O números de elementos que você tem é: " + qtd);
     }
 
     // getter and setters
