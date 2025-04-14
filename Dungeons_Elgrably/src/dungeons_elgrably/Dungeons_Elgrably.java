@@ -28,6 +28,21 @@ public class Dungeons_Elgrably {
      */
 
     public static void main(String[] args) {
+
+        LinkedList participants = new LinkedList();
+
+        // Cria personagens de exemplo com agilidade e atributos variados
+        PlayerCharacter yasmin = new PlayerCharacter(1, "Yasmin", 5, 100, 100, 50, 50, 18);
+        PlayerCharacter caio = new PlayerCharacter(2, "Caio", 4, 100, 100, 30, 30, 14);
+
+        // Adiciona os personagens na lista
+        participants.addNode(yasmin);
+        participants.addNode(caio);
+
+        // Cria a Arena com os personagens e inicia a batalha
+        Arena arena = new Arena(1, participants);
+        arena.startBattle();
+
         Loading loading = new Loading();
         loading.setVisible(true);
         loading.pack();
