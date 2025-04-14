@@ -4,7 +4,11 @@
  */
 package dungeons_elgrably;
 
-import view.Home;
+import javax.swing.JOptionPane;
+import view.player.Home;
+import view.playerCharacter.HomeCharacter;
+import view.Loading;
+import view.MusicPlayer;
 
 import java.util.Queue;
 
@@ -22,25 +26,48 @@ public class Dungeons_Elgrably {
     /**
      * @param args the command line arguments
      */
+
     public static void main(String[] args) {
-        // Cria a lista encadeada de participantes
+
         LinkedList participants = new LinkedList();
 
         // Cria personagens de exemplo com agilidade e atributos variados
         PlayerCharacter yasmin = new PlayerCharacter(1, "Yasmin", 5, 100, 100, 50, 50, 18);
         PlayerCharacter caio = new PlayerCharacter(2, "Caio", 4, 100, 100, 30, 30, 14);
-        PlayerCharacter dandan = new PlayerCharacter(3, "DanDan", 3, 80, 80, 60, 60, 20);
-        PlayerCharacter muriel = new PlayerCharacter(4, "Muriel", 2, 90, 90, 40, 40, 12);
 
         // Adiciona os personagens na lista
         participants.addNode(yasmin);
         participants.addNode(caio);
-        participants.addNode(dandan);
-        participants.addNode(muriel);
 
         // Cria a Arena com os personagens e inicia a batalha
         Arena arena = new Arena(1, participants);
         arena.startBattle();
+
+        Loading loading = new Loading();
+        loading.setVisible(true);
+        loading.pack();
+        loading.setLocationRelativeTo(null);
+
+        MusicPlayer player = new MusicPlayer();
+        player.play("src/view/musica.wav");
+
+        try {
+            for (int i = 0; i <= 100; i += 99) {
+                Thread.sleep(70);
+                loading.getProgresso().setValue(i);
+                loading.getPorcentagem().setText(Integer.toString(i) + "%");
+            }
+            loading.dispose();
+
+            player.stop();
+
+            Home LoginFrame = new Home();
+            LoginFrame.setVisible(true);
+            LoginFrame.pack();
+            LoginFrame.setLocationRelativeTo(null);
+        } catch (InterruptedException e) {
+            JOptionPane.showConfirmDialog(null, "Erro!");
+        }
     }
 
 }
